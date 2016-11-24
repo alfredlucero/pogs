@@ -1,0 +1,30 @@
+{
+  "name": "pogs",
+  "version": "1.0.0",
+  "description": "Pedong or Gingin Schedules Web Application (MEAN STACK)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfredlucero/pogs.git"
+  },
+  "author": "Alfred Lucero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfredlucero/pogs/issues"
+  },
+  "homepage": "https://github.com/alfredlucero/pogs#readme",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-jwt": "^0.1.8",
+    "angular-route": "^1.5.9",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
