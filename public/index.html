@@ -2,22 +2,25 @@
 <html ng-app="pogsApp">
 <head>
 	<title>Pogs | Pedong or GinGin Schedules</title>
+	<!-- CSS Dependencies -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 	<header>
-		
+		<h1 class="text-center"><span class="glyphicon glyphicon-calendar pogs-icon" aria-hidden="true"></span><span class="pedong--text">Pedong</span> or <span class="gingin--text">GinGin</span> Schedules</h1>
 	</header>
 
-	<div class="container">
-		<div ng-view></div>
+	<div>
 	</div>
 	
 	<footer class="footer">
 	</footer>
 
-
+	<!-- JS Dependencies -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/angular-route/angular-route.js"></script>
 	<script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>

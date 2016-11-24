@@ -1,0 +1,19 @@
+body {
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+	color: #22264b;
+}
+
+.pogs-icon {
+	 background: -webkit-linear-gradient(#e6cf8b, #b56969);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pedong--text {
+	color: #e6cf8b;
+}
+
+.gingin--text {
+ color: #b56969;
+}
