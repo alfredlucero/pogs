@@ -9,15 +9,51 @@
 </head>
 
 <body>
-	<header>
-		<h1 class="text-center"><span class="glyphicon glyphicon-calendar pogs-icon" aria-hidden="true"></span><span class="pedong--text">Pedong</span> or <span class="gingin--text">GinGin</span> Schedules</h1>
-	</header>
+	<div id="pogs-container" class="container-fluid">
 
-	<div>
-	</div>
+		<header id="pogs-nav" class="row">
+
+			<div id="pogs-nav-wrapper" class="col-xs-12 col-md-offset-3 col-md-6 text-center">
+				<h1 id="pogs-nav-title"><span class="glyphicon glyphicon-calendar pogs--text" aria-hidden="true"></span><span class="pedong--text">Pedong</span> or <span class="gingin--text">GinGin</span> Schedules</h1>
+			</div>
+
+			<div id="pogs-nav-scheduler" class="col-xs-12 col-md-offset-3 col-md-6" >
+				
+			</div>
+
+		</header> <!-- end pogs-nav -->
+
+		<div id="pogs-schedule" class="row">
+
+			<div id="pogs-schedule-tabs" class="col-xs-12 col-md-offset-3 col-md-6">
+				<ul class="nav nav-pills col-xs-12">
+				  <li id="pogs-tab" role="presentation" class="active pogs-schedule-tab col-xs-4"><a id="pogs-link" href="#">Pogs</a></li>
+				  <li id="pedong-tab" role="presentation" class="pogs-schedule-tab col-xs-4"><a id="pedong-link" href="#">Pedong</a></li>
+				  <li id="gingin-tab" role="presentation" class="pogs-schedule-tab col-xs-4"><a id="gingin-link" href="#">GinGin</a></li>
+				</ul>
+			</div>
+
+			<div id="pogs-schedule-view" ng-view>
+				
+			</div>
 	
-	<footer class="footer">
-	</footer>
+		</div> <!-- end pogs-schedule -->
+
+		<footer id="pogs-contacts" class="row">
+
+			<div id="pogs-contacts-content" class="col-xs-12 col-md-offset-3 col-md-6 text-center">
+				<p>Inspired by Winnie the Pogs and established 06/09/16.</p>
+				<p class="pedong--text">Alfred Lucero aka Pedong</p>
+				<p class="gingin--text">Regine Deguzman aka GinGin</p>
+			</div>
+
+		</footer> <!-- end pogs-contacts -->
+
+	</div> <!-- end pogs-container -->
+
+	
+	
+	
 
 	<!-- JS Dependencies -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

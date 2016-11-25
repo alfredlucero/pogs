@@ -4,7 +4,14 @@ body {
 	color: #22264b;
 }
 
-.pogs-icon {
+#pogs-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+.pogs--text {
 	 background: -webkit-linear-gradient(#e6cf8b, #b56969);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -16,4 +23,21 @@ body {
 
 .gingin--text {
  color: #b56969;
+}
+
+.pogs-schedule-tab {
+	margin: 0 !important;
+	padding: 0;
+	text-align: center;
+}
+
+#pogs-contacts {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+#pogs-contacts-content {
+	border-top: #ccc solid 2px;
+	font-size: 15px;
 }
