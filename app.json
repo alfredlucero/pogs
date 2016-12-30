@@ -1,0 +1,8 @@
+{
+  "name": "Pogs",
+  "description": "MEAN web app for Pedong or Gingin Schedules",
+  "repository": "https://github.com/alfredlucero/pogs",
+  "logo": "",
+  "keywords": ["pogs", "pedongorginginschedules", "alfienitylucero", "node", "express", "angular", "MEAN", "mongodb", "REST", "API"],
+  "addons": ["mongolab"]
+}
