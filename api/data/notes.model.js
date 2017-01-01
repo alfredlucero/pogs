@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var noteSchema = new mongoose.Schema({
-	author : {
+	date : {
 		type : String,
 		required : true
 	},
@@ -9,16 +9,29 @@ var noteSchema = new mongoose.Schema({
 		type : String,
 		required : true
 	},
-	description : {
+	information : {
 		type : String,
 		required : true
 	},
-	date : { 
-		type : Date,
-		default : Date.now
+	tags : {
+		type : String,
+		required : true
 	},
-	comments : {
-		type : [String]
+	location : {
+		type : String,
+		required : true
+	},
+	approxTime : {
+		type : String,
+		required : true
+	},
+	author : {
+		type : String,
+		required : true
+	},
+	icons : {
+		type : [String],
+		required : true
 	}
 });
 

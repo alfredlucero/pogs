@@ -36,26 +36,6 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<footer id="pogs-footer" class="col-xs-12">
-				<div id="pogs-footer-add" class="col-xs-12 col-md-offset-2 col-md-8">
-					<h3 class="col-xs-4">Quick! Add a Note</h3>
-					<div class="pogs-footer-input col-xs-7">
-						<input class="col-xs-6" type="text" placeholder="Title of Quick Note">
-						<input class="col-xs-6" type="text" placeholder="Quick Note Info">
-					</div>
-					<button class="btn btn-circle col-xs-1" type="submit"><i class="fa fa-plus"></i></button>
-				</div>
-				<div id="pogs-footer-search" class="col-xs-12 col-md-offset-2 col-md-8">
-					<h3 class="col-xs-4">Quick! Search for a Note</h3>
-					<div class="pogs-footer-input col-xs-7">
-						<input class="col-xs-12" type="text" placeholder="MM/DD/YY; Title; Keywords; Tags">
-					</div>
-					<button class="btn btn-circle col-xs-1" type="submit"><i class="fa fa-search"></i></button>
-				</div>
-			</footer>
-		</div>
-	</div>
 
 	<div class="modal fade" id="pogs-advanced-add" tabindex="-1" role="dialog" aria-labelledby="pogs-advanced-add-label" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
@@ -101,7 +81,7 @@
 								<h1 class="col-xs-2"><i class="fa fa-group" aria-hidden="true"></i></h1>
 								<h1 class="col-xs-2"><i class="fa fa-music" aria-hidden="true"></i></h1>
 								<h1 class="col-xs-2"><i class="fa fa-home" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-hospital-o" aria-hidden="true"></i></h1>
+								<h1 class="col-xs-2"><i class="fa fa-id-card-o" aria-hidden="true"></i></h1>
 							</div>
 							<div class="col-xs-12 text-center">
 								<button class="btn btn-circle btn-circle--large"><i class="fa fa-plus" aria-hidden="true"></i></button>
@@ -113,16 +93,15 @@
 	  </div>
 	</div>
 	
-	
-	
-
 	<!-- JS Dependencies -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/angular-route/angular-route.js"></script>
 	<script src="angular-app/app.js"></script>
-	<script src="angular-app/main/main.controller.js"></script>
+	<script src="angular-app/notes-data-factory/notes-data-factory.js"></script>
+	<script src="angular-app/notes-list/notes-list.controller.js"></script>
+	<script src="angular-app/notes-display/notes-display.controller.js"></script>
 </body>
 
 </html>

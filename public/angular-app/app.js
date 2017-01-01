@@ -3,15 +3,15 @@ angular.module('pogsApp', ['ngRoute'])
 
 function config($routeProvider) {
 	$routeProvider
-		.when('/', {
-			templateUrl: 'angular-app/main/main.html',
-			controller: MainController,
+		.when('/notes', {
+			templateUrl: 'angular-app/notes-list/notes.html',
+			controller: NotesController,
 			controllerAs: 'vm'
 		})
 		.when('/about', {
 			templateUrl: 'angular-app/about/about.html'
 		})
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/notes'
 		});
 }

@@ -22,7 +22,7 @@ module.exports.notesGetOne = function(req, res) {
 	var noteId = req.params.noteId;
 	console.log("GET noteId", noteId);
 
-	Notes
+	Note
 		.findById(noteId)
 		.exec(function(err, note) {
 			var response = {
@@ -75,18 +75,19 @@ module.exports.notesUpdateOne = function(req, res) {
 					.status(response.status)
 					.json(response.message);
 			} else {
-				console.log(req.body);
-				brother._id = req.body._id;
-				brother.name = req.body.name;
-				brother.number = req.body.number;
-				brother.aka = req.body.aka;
-				brother.className = req.body.className;
-				brother.crossed = req.body.crossed;
-				brother.family = req.body.family;
+				//console.log(req.body);
+				note.date = req.body.date;
+				note.title = req.body.title;
+				note.information = req.body.information;
+				note.tags = req.body.tags;
+				note.location = req.body.location;
+				note.approxTime = req.body.approxTime;
+				note.author = req.body.author;
+				note.icons = req.body.icons;
 
-				console.log(brother);
+				//console.log(note);
 
-				brother.save(function(err, noteUpdated) {
+				note.save(function(err, noteUpdated) {
 					if (err) {
 						res
 							.status(500)
@@ -102,27 +103,28 @@ module.exports.notesUpdateOne = function(req, res) {
 		});
 };
 
-module.exports.brothersAddOne = function(req, res) {
+module.exports.notesAddOne = function(req, res) {
 	Note
 		.create({
-			_id : req.body._id,
-			name : req.body.name,
-			number : req.body.number,
-			aka : req.body.aka,
-			className : req.body.className,
-			crossed : req.body.crossed,
-			family : req.body.family
-		}, function(err, brother) {
+			date : req.body.date,
+			title : req.body.title,
+			information : req.body.information,
+			tags : req.body.tags,
+			location : req.body.location,
+			approxTime : req.body.approxTime,
+			author : req.body.author,
+			icons : req.body.icons
+		}, function(err, note) {
 			if (err) {
-				console.log("Error creating brother");
+				console.log("Error creating note");
 				res
 					.status(400)
 					.json(err);
 			} else {
-				console.log("Brother created", brother);
+				console.log("Note created", note);
 				res
 					.status(201) // Created
-					.json(brother);
+					.json(note);
 			}
 		});
 };
@@ -138,7 +140,7 @@ module.exports.notesDeleteOne = function(req, res) {
 					.status(404)
 					.json(err);
 			} else {
-				console.log("Note deleted, id:", brotherId);
+				console.log("Note deleted, id:", noteId);
 				res
 					.status(204)
 					.json();

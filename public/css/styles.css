@@ -1,5 +1,5 @@
 body {
-	font-size: 16px;
+	font-size: 20px;
 	font-family: 'Poiret One', cursive;
 	font-weight: 700;
 	color: #555;
@@ -72,6 +72,7 @@ input {
 .pogs--border {
 	border: dashed 1px #333;
 	border-radius: 10px;
+	box-shadow: 0 0 5px 0 #333;
 }
 
 .btn-circle {
@@ -113,6 +114,10 @@ input {
 	border-radius: 10px;
 }
 
+.notes {
+	margin: 25px 0;
+}
+
 #pedong-notes {
 	min-height: 100vh;
 	border-right: dashed thick #eee;
@@ -126,6 +131,7 @@ input {
 #pogs-footer {
 	position: fixed;
 	bottom: 0;
+	left: 0;
 	background-color: #cecece;
 	opacity: 0.95;
 }
@@ -141,4 +147,7 @@ input {
 
 .modal-body {
 	background-color: #cecece;
+	border: dashed 2px #555;
+	border-radius: 10px;
+	box-shadow: 0 0 5px 0 #333;
 }

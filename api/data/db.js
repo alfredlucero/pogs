@@ -1,25 +1,41 @@
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require('mongoose');
 var dburl = (process.env.MONGODB_URI || 'mongodb://localhost:27017/pogsdb');
 
-var _connection = null;
+mongoose.connect(dburl);
 
-var open = function() {
-	MongoClient.connect(dburl, function(err, db) {
-		if (err) {
-			console.log("DB connection failed");
-			return;
-		}
-		_connection = db;
-		console.log("DB connection open", db);
+mongoose.connection.on('connected', function() {
+	console.log('Mongoose connected to ' + dburl);
+});
+mongoose.connection.on('disconnected', function() {
+	console.log('Mongoose disconnected');
+});
+mongoose.connection.on('error', function(err) {
+	console.log('Mongoose connection error: ' + dburl);
+});
+
+// For app termination
+process.on('SIGINT', function() {
+	mongoose.connection.close(function() {
+		console.log('Mongoose disconnected through app termination (SIGINT)');
+		process.exit(0);
 	});
-	// set _connection
-};
+});
 
-var get = function() {
-	return _connection;
-};
+// For Heroku app termination
+process.on('SIGTERM', function() {
+	mongoose.connection.close(function() {
+		console.log('Mongoose disconnected through app termination (SIGTERM)');
+		process.exit(0);
+	});
+});
 
-module.exports = {
-	open: open,
-	get: get
-};
+// For nodemon restarts
+process.once('SIGUSR2', function() {
+	mongoose.connection.close(function() {
+		console.log('Mongoose disconnected through app termination (SIGUSR2)');
+		process.kill(process.pid, 'SIGUSR2');
+	});
+});
+
+// Bring in schemas and models
+require('./notes.model.js');
