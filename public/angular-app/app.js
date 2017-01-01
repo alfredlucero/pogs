@@ -8,10 +8,8 @@ function config($routeProvider) {
 			controller: MainController,
 			controllerAs: 'vm'
 		})
-		.when('/notes', {
-			templateUrl: 'angular-app/notes/notes.html',
-			controller: NotesController,
-			controllerAs: 'vm'
+		.when('/about', {
+			templateUrl: 'angular-app/about/about.html'
 		})
 		.otherwise({
 			redirectTo: '/'

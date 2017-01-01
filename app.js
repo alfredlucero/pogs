@@ -1,10 +1,10 @@
-require('./api/data/db.js');
+//require('./api/data/db.js');
 var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var routes = require('./api/routes');
+// var routes = require('./api/routes');
 
 app.set('port', (process.env.PORT || 3000)); // Set the port
 
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended : false }));
 app.use(bodyParser.json());
 
 // Add some routing
-app.use('/api', routes);
+// app.use('/api', routes);
 
 // Listen for requests
 var server = app.listen(app.get('port'), function() {

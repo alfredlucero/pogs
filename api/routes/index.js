@@ -1,18 +1,18 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 
-var ctrlNotes = require('../controllers/notes.controller.js');
+// var ctrlNotes = require('../controllers/notes.controller.js');
 
-// Brother routes
-router
-	.route('/notes')
-	.get(ctrlBrothers.brothersGetAll)
-	.post(ctrlBrothers.brothersAddOne);
+// // Notes routes
+// router
+// 	.route('/notes')
+// 	.get(ctrlNotes.notesGetAll)
+// 	.post(ctrlNotes.notesAddOne);
 
-router
-	.route('/brothers/:brotherId')
-	.get(ctrlBrothers.brothersGetOne)
-	.put(ctrlBrothers.brothersUpdateOne)
-	.delete(ctrlBrothers.brothersDeleteOne);
+// router
+// 	.route('/notes/:noteId')
+// 	.get(ctrlNotes.notesGetOne)
+// 	.put(ctrlNotes.notesUpdateOne)
+// 	.delete(ctrlNotes.notesDeleteOne);
 
-module.exports = router;
+// module.exports = router;

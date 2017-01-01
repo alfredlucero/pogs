@@ -127,18 +127,18 @@ module.exports.brothersAddOne = function(req, res) {
 		});
 };
 
-module.exports.brothersDeleteOne = function(req, res) {
-	var brotherId = req.params.brotherId;
+module.exports.notesDeleteOne = function(req, res) {
+	var noteId = req.params.noteId;
 
-	Brother
-		.findByIdAndRemove(brotherId)
-		.exec(function(err, brother) {
+	Note
+		.findByIdAndRemove(noteId)
+		.exec(function(err, note) {
 			if (err) {
 				res
 					.status(404)
 					.json(err);
 			} else {
-				console.log("Brother deleted, id:", brotherId);
+				console.log("Note deleted, id:", brotherId);
 				res
 					.status(204)
 					.json();
