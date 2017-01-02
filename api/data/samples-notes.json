@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "58697c53418af335380d0916",
+    "date": "01/01/2017",
+    "title": "New Year New Pogs",
+    "information": "Building our Pogs MEAN Web App",
+    "tags": "#pogs #pedongxgingin #mamaneedsanewwebapp",
+    "location": "Long Beach, CA",
+    "approxTime": "2:00PM",
+    "author": "Pedong",
+    "__v": 0,
+    "icons": [
+      "special",
+      "work"
+    ]
+  },
+  {
+    "_id": "58697cde418af335380d0918",
+    "date": "01/17/2017",
+    "title": "Pedong's Birthday",
+    "information": "Dinner somewhere & then cardio after!",
+    "tags": "#datenight #cardio #birthday #neverforgetting",
+    "location": "Los Angeles, CA",
+    "approxTime": "7:00PM",
+    "author": "Gingin",
+    "__v": 0,
+    "icons": [
+      "birthday"
+    ]
+  },
+  {
+    "_id": "58697d6b418af335380d0919",
+    "date": "01/21/2017",
+    "title": "Vegas Trip",
+    "information": "Off to sin city for Pedong's belated birthday with Lucero famiry!",
+    "tags": "#vegas #firsttime #trip #firstadventureoftheyear #feelin22 #shes20 #firstoutofstatetrip #sorryjuno #barkbark",
+    "location": "Las Vegas, NV",
+    "approxTime": "9:00AM",
+    "author": "Pogs",
+    "__v": 0,
+    "icons": [
+      "location",
+      "special",
+      "family"
+    ]
+  },
+  {
+    "_id": "5869892a418af335380d091b",
+    "date": "01/01/2017",
+    "title": "Lakers Game",
+    "information": "LET'S GO LAKERS AGAINST RAPTORS! NEW YEAR'S GAME!",
+    "tags": "#lakeshow #lotteryteam #firstlakersgameatstaples",
+    "location": "Los Angeles, CA",
+    "approxTime": "7:00PM",
+    "author": "Pedong",
+    "__v": 0,
+    "icons": [
+      "special",
+      "family"
+    ]
+  }
+]
