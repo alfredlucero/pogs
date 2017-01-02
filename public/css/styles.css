@@ -75,6 +75,10 @@ input {
 	box-shadow: 0 0 5px 0 #333;
 }
 
+.btn-default.active {
+	background-color: #fff !important;
+}
+
 .btn-circle {
 	padding: 0;
 	margin-top: 10px;
