@@ -69,6 +69,10 @@ input {
 	background-color: #b6b6b6;
 }
 
+.all--bg {
+	background-color: #d7e4ef;
+}
+
 .pogs--border {
 	border: dashed 1px #333;
 	border-radius: 10px;
