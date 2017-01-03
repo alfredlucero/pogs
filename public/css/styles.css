@@ -106,6 +106,24 @@ input {
 	color: #76ac77;
 }
 
+.btn-close {
+	padding: 0;
+	margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  border: solid thick #a94442;
+  color: #a94442;
+  background-color: #e1ffe2;
+}
+
+.btn-close:hover {
+	border: solid thick #6f4342;
+	color: #6f4342;
+}
+
 .btn-circle--large {
 	width: 60px;
 	height: 60px;
