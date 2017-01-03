@@ -8,45 +8,46 @@
 			        <button type="button" class="close col-xs-2" data-dismiss="modal" aria-label="Close">
 			      		<h1 class="col-xs-12"><i class="fa fa-times" aria-hidden="true"></i></h1>
 			    		</button>
-			    		<form name="vm.addAdvancedNoteForm" ng-submit="vm.addNote()">
-							<h3 class="col-xs-2">Date</h3>
-							<input class="col-xs-4" type="text" placeholder="MM/DD/YY" name="date" ng-model="vm.addAdvancedNoteData.date" required>
-							<h3 class="col-xs-2">Title</h3>
-							<input type="text" class="col-xs-4" placeholder="What's the title?" ng-model="vm.addAdvancedNoteData.title" required>
-							<h3 class="col-xs-12">Note Info Here*</h3>
-							<input type="textarea" class="col-xs-12" placeholder="What's it about?" ng-model="vm.addAdvancedNoteData.information" required>
-							<h3 class="col-xs-2">Tags</h3>
-							<input type="text" class="col-xs-10" placeholder="#hashtag" ng-model="vm.addAdvancedNoteData.tags" required>
-							<h3 class="col-xs-2">Location</h3>
-							<input type="text" class="col-xs-4" placeholder="Where is it?" ng-model="vm.addAdvancedNoteData.location" required>
-							<h3 class="col-xs-2">Time</h3>
-							<input type="text" class="col-xs-4" placeholder="XX:XXAM/PM" ng-model="vm.addAdvancedNoteData.approxTime" required>
-							<div class="col-xs-4">								<button type="button" class="btn btn-default col-xs-12 pedong--bg pogs--border" ng-class="{active: vm.isAuthorSet('Pedong')}" ng-click="vm.setAuthor('Pedong')"><h3>Pedong</h3></button>
-							</div>
-							<div class="col-xs-4">
-								<button type="button" class="btn btn-default col-xs-12 pogs--bg pogs--border" ng-class="{active: vm.isAuthorSet('Pogs')}" ng-click="vm.setAuthor('Pogs')"><h3>Pogs</h3></button>
-							</div>
-							<div class="col-xs-4">
-								<button type="button" class="btn btn-default col-xs-12 gingin--bg pogs--border" ng-class="{active: vm.isAuthorSet('Gingin')}" ng-click="vm.setAuthor('Gingin')"><h3>Gingin</h3></button>
-							</div>
-							<h3 class="col-xs-2">Icons</h3>
-							<div class="col-xs-10">
-								<h1 class="col-xs-2"><i class="fa fa-gift" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-book" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-map" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-star" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-suitcase" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-plane" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-hospital-o" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-cutlery" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-group" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-music" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-home" aria-hidden="true"></i></h1>
-								<h1 class="col-xs-2"><i class="fa fa-id-card-o" aria-hidden="true"></i></h1>
-							</div>
-							<div class="col-xs-12 text-center">
-								<button type="submit" data-dismiss="modal" class="btn btn-circle btn-circle--large"><i class="fa fa-plus" aria-hidden="true"></i></button>
-							</div>
+			    		<form name="vm.addAdvancedNoteForm" ng-submit="vm.addAdvancedNote()">
+								<h3 class="col-xs-2">Date</h3>
+								<input class="col-xs-4" type="text" placeholder="MM/DD/YY" name="date" ng-model="vm.addAdvancedNoteData.date" required>
+								<h3 class="col-xs-2">Title</h3>
+								<input type="text" name="title" class="col-xs-4" placeholder="What's the title?" ng-model="vm.addAdvancedNoteData.title" required>
+								<h3 class="col-xs-12">Note Info Here*</h3>
+								<input type="textarea" name="information" class="col-xs-12" placeholder="What's it about?" ng-model="vm.addAdvancedNoteData.information" required>
+								<h3 class="col-xs-2">Tags</h3>
+								<input type="text" name="tags" class="col-xs-10" placeholder="#hashtag" ng-model="vm.addAdvancedNoteData.tags" required>
+								<h3 class="col-xs-2">Location</h3>
+								<input type="text" name="location" class="col-xs-4" placeholder="Where is it?" ng-model="vm.addAdvancedNoteData.location" required>
+								<h3 class="col-xs-2">Time</h3>
+								<input type="text" name="approxTime" class="col-xs-4" placeholder="XX:XXAM/PM" ng-model="vm.addAdvancedNoteData.approxTime" required>
+								<div class="col-xs-4">								
+									<button type="button" class="btn btn-default col-xs-12 pedong--bg pogs--border" ng-class="{active: vm.isAuthorSet('Pedong')}" ng-click="vm.setAuthor('Pedong')"><h3>Pedong</h3></button>
+								</div>
+								<div class="col-xs-4">
+									<button type="button" class="btn btn-default col-xs-12 pogs--bg pogs--border" ng-class="{active: vm.isAuthorSet('Pogs')}" ng-click="vm.setAuthor('Pogs')"><h3>Pogs</h3></button>
+								</div>
+								<div class="col-xs-4">
+									<button type="button" class="btn btn-default col-xs-12 gingin--bg pogs--border" ng-class="{active: vm.isAuthorSet('Gingin')}" ng-click="vm.setAuthor('Gingin')"><h3>Gingin</h3></button>
+								</div>
+								<h3 class="col-xs-2">Icons</h3>
+								<div class="col-xs-10">
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('birthday') }" ng-click="vm.toggleIcon('birthday')"><i class="fa fa-gift" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('school') }" ng-click="vm.toggleIcon('school')"><i class="fa fa-book" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('location') }" ng-click="vm.toggleIcon('location')"><i class="fa fa-map" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('special') }" ng-click="vm.toggleIcon('special')"><i class="fa fa-star" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('work') }" ng-click="vm.toggleIcon('work')"><i class="fa fa-suitcase" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('travel') }" ng-click="vm.toggleIcon('travel')"><i class="fa fa-plane" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('sick') }" ng-click="vm.toggleIcon('sick')"><i class="fa fa-hospital-o" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('food') }" ng-click="vm.toggleIcon('food')"><i class="fa fa-cutlery" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('family') }" ng-click="vm.toggleIcon('family')"><i class="fa fa-group" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('concert') }" ng-click="vm.toggleIcon('concert')"><i class="fa fa-music" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('home') }" ng-click="vm.toggleIcon('home')"><i class="fa fa-home" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default col-xs-2 pogs--border all--bg" ng-class="{active: vm.isIconToggled('party') }" ng-click="vm.toggleIcon('party')"><i class="fa fa-id-card-o" aria-hidden="true"></i></button>
+								</div>
+								<div class="col-xs-12 text-center">
+									<button type="submit" class="btn btn-circle btn-circle--large"><i class="fa fa-plus" aria-hidden="true"></i></button>
+								</div>
 						</form>
 	    			</div>
 	    		</div>

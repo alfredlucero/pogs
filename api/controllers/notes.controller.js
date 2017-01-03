@@ -84,6 +84,7 @@ module.exports.notesUpdateOne = function(req, res) {
 				note.approxTime = req.body.approxTime;
 				note.author = req.body.author;
 				note.icons = req.body.icons;
+				note.archived = req.body.archived;
 
 				//console.log(note);
 
@@ -113,7 +114,8 @@ module.exports.notesAddOne = function(req, res) {
 			location : req.body.location,
 			approxTime : req.body.approxTime,
 			author : req.body.author,
-			icons : req.body.icons
+			icons : req.body.icons,
+			archived : req.body.archived
 		}, function(err, note) {
 			if (err) {
 				console.log("Error creating note");

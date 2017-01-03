@@ -32,6 +32,10 @@ var noteSchema = new mongoose.Schema({
 	icons : {
 		type : [String],
 		required : true
+	},
+	archived : {
+		type : Boolean,
+		required : true
 	}
 });
 
