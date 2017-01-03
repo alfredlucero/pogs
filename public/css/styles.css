@@ -83,6 +83,10 @@ input {
 	background-color: #fff !important;
 }
 
+.btn-edit {
+	border: none;
+}
+
 .btn-circle {
 	padding: 0;
 	margin-top: 10px;

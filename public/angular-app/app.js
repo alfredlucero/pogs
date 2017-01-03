@@ -8,6 +8,11 @@ function config($routeProvider) {
 			controller: NotesController,
 			controllerAs: 'vm'
 		})
+		.when('/notes/:id', {
+			templateUrl: 'angular-app/notes-display/note.html',
+			controller: NoteController,
+			controllerAs: 'vm'
+		})
 		.when('/about', {
 			templateUrl: 'angular-app/about/about.html'
 		})
