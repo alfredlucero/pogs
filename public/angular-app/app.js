@@ -16,6 +16,11 @@ function config($routeProvider) {
 		.when('/about', {
 			templateUrl: 'angular-app/about/about.html'
 		})
+		.when('/archive', {
+			templateUrl: 'angular-app/archive/archive.html',
+			controller: ArchiveController,
+			controllerAs: 'vm'
+		})
 		.otherwise({
 			redirectTo: '/notes'
 		});

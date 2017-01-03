@@ -88,7 +88,7 @@
 
 <div ng-if="vm.noteType == 'pedong'" class="row">
 	<div id="pedong-notes" class="col-xs-12">
-		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pedongPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }">
+		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pedongPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }">
 			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
 			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
 			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
@@ -129,7 +129,7 @@
 
 <div ng-if="vm.noteType == 'gingin'" class="row">
 	<div id="gingin-notes" class="col-xs-12">
-		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
+		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
 			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
 			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
 			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
@@ -170,7 +170,7 @@
 
 <div ng-if="vm.noteType == 'pogs'" class="row">
 	<div id="pogs-notes" class="col-xs-12">
-		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{'pogs--bg': (note.author == 'Pogs') }">
+		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{'pogs--bg': (note.author == 'Pogs') }">
 			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
 			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
 			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
