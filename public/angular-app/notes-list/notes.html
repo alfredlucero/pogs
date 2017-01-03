@@ -46,13 +46,19 @@
 			</div>
 		</div>
 		<div id="gingin-notes" class="col-xs-6">
-			<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter | orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
-				<h2 class="col-xs-4">{{ note.date }}</h2>
-				<h2 class="col-xs-8">{{ note.title }}</h2>
-				<p class="col-xs-12">{{ note.information }}</p>
-				<p class="col-xs-12">{{ note.tags }}</p>
-				<p class="col-xs-9">{{ note.location }}</p>
-				<p class="col-xs-3">{{ note.approxTime }}</p>
+			<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
+				<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
+				<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
+				<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
+				<input ng-show="note.editMode" type="text" ng-model="note.title" class="col-xs-8">
+				<p ng-hide="note.editMode" class="col-xs-12">{{ note.information }}</p>
+				<input ng-show="note.editMode" type="text" ng-model="note.information" class="col-xs-12">
+				<p ng-hide="note.editMode" class="col-xs-12">{{ note.tags }}</p>
+				<input ng-show="note.editMode" type="text" ng-model="note.tags" class="col-xs-12">
+				<p ng-hide="note.editMode" class="col-xs-9">{{ note.location }}</p>
+				<input ng-show="note.editMode" type="text" ng-model="note.location" class="col-xs-9">
+				<p ng-hide="note.editMode" class="col-xs-3">{{ note.approxTime }}</p>
+				<input ng-show="note.editMode" type="text" ng-model="note.approxTime" class="col-xs-3">
 				<h1 class="col-xs-2" ng-repeat="icon in note.icons">
 					<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
 					<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -67,8 +73,12 @@
 					<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
 					<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
 				</h1>
+				<div ng-show="note.editMode" class="col-xs-10 text-center">
+					<button type="button" class="btn btn-circle" ng-click="vm.updateNote(note)"><i class="fa fa-save" aria-hidden="true"></i></button>
+					<button type="button" class="btn btn-close" ng-click="vm.toggleEditMode(note)"><i class="fa fa-times" aria-hidden="true"></i></button>
+				</div>
 				<div class="col-xs-offset-10 col-xs-2">
-					<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
+					<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.toggleEditMode(note)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
 					<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-trash-o"></i></p></button>
 				</div>
 			</div>
@@ -78,13 +88,19 @@
 
 <div ng-if="vm.noteType == 'pedong'" class="row">
 	<div id="pedong-notes" class="col-xs-12">
-		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pedongPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }">
-			<h2 class="col-xs-4">{{ note.date }}</h2>
-			<h2 class="col-xs-8">{{ note.title }}</h2>
-			<p class="col-xs-12">{{ note.information }}</p>
-			<p class="col-xs-12">{{ note.tags }}</p>
-			<p class="col-xs-9">{{ note.location }}</p>
-			<p class="col-xs-3">{{ note.approxTime }}</p>
+		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pedongPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
+			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.title" class="col-xs-8">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.information }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.information" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.tags }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.tags" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-9">{{ note.location }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.location" class="col-xs-9">
+			<p ng-hide="note.editMode" class="col-xs-3">{{ note.approxTime }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.approxTime" class="col-xs-3">
 			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
 				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -99,8 +115,12 @@
 				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
 			</h1>
+			<div ng-show="note.editMode" class="col-xs-10 text-center">
+				<button type="button" class="btn btn-circle" ng-click="vm.updateNote(note)"><i class="fa fa-save" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-close" ng-click="vm.toggleEditMode(note)"><i class="fa fa-times" aria-hidden="true"></i></button>
+			</div>
 			<div class="col-xs-offset-10 col-xs-2">
-				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
+				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.toggleEditMode(note)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
 				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-trash-o"></i></p></button>
 			</div>
 		</div>
@@ -109,13 +129,19 @@
 
 <div ng-if="vm.noteType == 'gingin'" class="row">
 	<div id="gingin-notes" class="col-xs-12">
-		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter | orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
-			<h2 class="col-xs-4">{{ note.date }}</h2>
-			<h2 class="col-xs-8">{{ note.title }}</h2>
-			<p class="col-xs-12">{{ note.information }}</p>
-			<p class="col-xs-12">{{ note.tags }}</p>
-			<p class="col-xs-9">{{ note.location }}</p>
-			<p class="col-xs-3">{{ note.approxTime }}</p>
+		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.ginginPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
+			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.title" class="col-xs-8">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.information }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.information" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.tags }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.tags" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-9">{{ note.location }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.location" class="col-xs-9">
+			<p ng-hide="note.editMode" class="col-xs-3">{{ note.approxTime }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.approxTime" class="col-xs-3">
 			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
 				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -130,8 +156,12 @@
 				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
 			</h1>
+			<div ng-show="note.editMode" class="col-xs-10 text-center">
+				<button type="button" class="btn btn-circle" ng-click="vm.updateNote(note)"><i class="fa fa-save" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-close" ng-click="vm.toggleEditMode(note)"><i class="fa fa-times" aria-hidden="true"></i></button>
+			</div>
 			<div class="col-xs-offset-10 col-xs-2">
-				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
+				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.toggleEditMode(note)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
 				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-trash-o"></i></p></button>
 			</div>
 		</div>
@@ -140,13 +170,19 @@
 
 <div ng-if="vm.noteType == 'pogs'" class="row">
 	<div id="pogs-notes" class="col-xs-12">
-		<div class="notes col-xs-6 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pogsFilter | filter: vm.quickFilter | orderBy: 'date'" ng-class="{ 'pogs--bg': (note.author == 'Pogs') }">
-			<h2 class="col-xs-4">{{ note.date }}</h2>
-			<h2 class="col-xs-8">{{ note.title }}</h2>
-			<p class="col-xs-12">{{ note.information }}</p>
-			<p class="col-xs-12">{{ note.tags }}</p>
-			<p class="col-xs-9">{{ note.location }}</p>
-			<p class="col-xs-3">{{ note.approxTime }}</p>
+		<div class="notes col-xs-12 pogs--border" ng-repeat="note in vm.notes |  filter: vm.pogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{'pogs--bg': (note.author == 'Pogs') }">
+			<h2 ng-hide="note.editMode" class="col-xs-4">{{ note.date }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.date" class="col-xs-4">
+			<h2 ng-hide="note.editMode" class="col-xs-8">{{ note.title }}</h2>
+			<input ng-show="note.editMode" type="text" ng-model="note.title" class="col-xs-8">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.information }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.information" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-12">{{ note.tags }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.tags" class="col-xs-12">
+			<p ng-hide="note.editMode" class="col-xs-9">{{ note.location }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.location" class="col-xs-9">
+			<p ng-hide="note.editMode" class="col-xs-3">{{ note.approxTime }}</p>
+			<input ng-show="note.editMode" type="text" ng-model="note.approxTime" class="col-xs-3">
 			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
 				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -161,8 +197,12 @@
 				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
 				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
 			</h1>
+			<div ng-show="note.editMode" class="col-xs-10 text-center">
+				<button type="button" class="btn btn-circle" ng-click="vm.updateNote(note)"><i class="fa fa-save" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-close" ng-click="vm.toggleEditMode(note)"><i class="fa fa-times" aria-hidden="true"></i></button>
+			</div>
 			<div class="col-xs-offset-10 col-xs-2">
-				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
+				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.toggleEditMode(note)"><p><i class="fa fa-pencil" aria-hidden="true"></i></p></button>
 				<button type="button" class="btn btn-default btn-edit col-xs-6" ng-class="{ 'pogs--bg': (note.author == 'Pogs') }" ng-click="vm.deleteNote(note._id)"><p><i class="fa fa-trash-o"></i></p></button>
 			</div>
 		</div>
