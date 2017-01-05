@@ -171,6 +171,15 @@ input {
 	margin: 20px 0 10px 0;
 }
 
+#pogs-footer-search-text {
+	padding: 0;
+	margin: 20px 0;
+}
+
+#pogs-footer-search-button {
+	margin-top: 15px;
+}
+
 #pogs-advanced-add {
 	background-color: #111;
 	opacity: 0.95;

@@ -5,6 +5,7 @@ function NotesController($route, $window, notesDataFactory) {
 	var vm = this;
 	vm.quickFilter = '';
 	vm.noteType = 'all';
+	vm.notes = [];
 	var currentDate = new Date();
 	var currentDay = currentDate.getDate();
 	var currentMonth = currentDate.getMonth();
@@ -13,22 +14,24 @@ function NotesController($route, $window, notesDataFactory) {
 
 	// Load notes data
 	notesDataFactory.notesList().then(function(response) {
-		vm.notes = response;
-		for (let i = 0; i < vm.notes.length; i++) {
-			var noteDate = new Date(vm.notes[i].date);
+		for (let i = 0; i < response.length; i++) {
+			let note = response[i];
+			let noteDate = new Date(note.date);
 			// Update certain notes to archived if it already has passed
-			if (noteDate < vm.currentDate) {
-				vm.notes[i].archived = true;
-				notesDataFactory.updateNote(vm.notes[i]._id, vm.notes[i]).then(function(response) {
-					console.log('Note archived');
-				}).catch(function(error) {
-					console.log(error);
-				});
+			if (!note.archived) {
+				if (noteDate < vm.currentDate) {
+					note.archived = true;
+					notesDataFactory.updateNote(note._id, note).then(function(response) {
+						console.log('Note archived');
+					}).catch(function(error) {
+						console.log(error);
+					});
+				} else {
+					note.editMode = false;
+					vm.notes.push(note);
+				}
 			}
-			vm.notes[i].editMode = false;
 		}
-
-		console.log(vm.notes);
 	});
 
 	vm.deleteNote = function(id) {
@@ -80,15 +83,15 @@ function NotesController($route, $window, notesDataFactory) {
 	};
 
 	vm.pedongPogsFilter = function(note) {
-		return !note.archived && (note.author === 'Pedong' || note.author === 'Pogs');
+		return (note.author === 'Pedong' || note.author === 'Pogs');
 	};
 
 	vm.ginginPogsFilter = function(note) {
-		return !note.archived && (note.author === 'Gingin' || note.author === 'Pogs');
+		return (note.author === 'Gingin' || note.author === 'Pogs');
 	};
 
 	vm.pogsFilter = function(note) {
-		return !note.archived && note.author === 'Pogs';
+		return note.author === 'Pogs';
 	};
 
 	vm.setNoteType = function(noteType) {

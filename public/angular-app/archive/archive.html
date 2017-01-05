@@ -1,0 +1,128 @@
+<div class="row">
+	<button class="btn btn-default col-xs-3 pogs--border all--bg" ng-class="{active: vm.isNoteTypeSet('all')}" ng-click="vm.setNoteType('all')"><h3>All</h3></button>
+	<button class="btn btn-default col-xs-3 pedong--bg pogs--border" ng-class="{active: vm.isNoteTypeSet('pedong')}" ng-click="vm.setNoteType('pedong')"><h3>Pedong</h3></button>
+	<button class="btn btn-default col-xs-3 gingin--bg pogs--border" ng-class="{active: vm.isNoteTypeSet('gingin')}" ng-click="vm.setNoteType('gingin')"><h3>Gingin</h3></button>
+	<button class="btn btn-default col-xs-3 pogs--bg pogs--border" ng-class="{active: vm.isNoteTypeSet('pogs')}" ng-click="vm.setNoteType('pogs')"><h3>Pogs</h3></button>
+</div>
+
+<div ng-if="vm.noteType == 'all'" class="row">
+	<div id="archive-notes" class="col-xs-12">
+		<div class="notes col-xs-4 pogs--border" ng-repeat="note in vm.notes | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 class="col-xs-4">{{ note.date }}</h2>
+			<h2 class="col-xs-8">{{ note.title }}</h2>
+			<p class="col-xs-12">{{ note.information }}</p>
+			<p class="col-xs-12">{{ note.tags }}</p>
+			<p class="col-xs-9">{{ note.location }}</p>
+			<p class="col-xs-3">{{ note.approxTime }}</p>
+			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
+				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'location'" class="col-xs-12"><i class="fa fa-map" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'special'" class="col-xs-12"><i class="fa fa-star" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'work'" class="col-xs-12"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'travel'" class="col-xs-12"><i class="fa fa-plane" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'sick'" class="col-xs-12"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'food'" class="col-xs-12"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'family'" class="col-xs-12"><i class="fa fa-group" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'concert'" class="col-xs-12"><i class="fa fa-music" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div ng-if="vm.noteType == 'pedong'" class="row">
+	<div id="archive-notes" class="col-xs-12">
+		<div class="notes col-xs-4 pogs--border" ng-repeat="note in vm.notes | filter: vm.pedongPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pedong--bg': (note.author == 'Pedong'), 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 class="col-xs-4">{{ note.date }}</h2>
+			<h2 class="col-xs-8">{{ note.title }}</h2>
+			<p class="col-xs-12">{{ note.information }}</p>
+			<p class="col-xs-12">{{ note.tags }}</p>
+			<p class="col-xs-9">{{ note.location }}</p>
+			<p class="col-xs-3">{{ note.approxTime }}</p>
+			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
+				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'location'" class="col-xs-12"><i class="fa fa-map" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'special'" class="col-xs-12"><i class="fa fa-star" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'work'" class="col-xs-12"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'travel'" class="col-xs-12"><i class="fa fa-plane" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'sick'" class="col-xs-12"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'food'" class="col-xs-12"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'family'" class="col-xs-12"><i class="fa fa-group" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'concert'" class="col-xs-12"><i class="fa fa-music" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div ng-if="vm.noteType == 'gingin'" class="row">
+	<div id="archive-notes" class="col-xs-12">
+		<div class="notes col-xs-4 pogs--border" ng-repeat="note in vm.notes | filter: vm.ginginPogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'gingin--bg': (note.author == 'Gingin'), 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 class="col-xs-4">{{ note.date }}</h2>
+			<h2 class="col-xs-8">{{ note.title }}</h2>
+			<p class="col-xs-12">{{ note.information }}</p>
+			<p class="col-xs-12">{{ note.tags }}</p>
+			<p class="col-xs-9">{{ note.location }}</p>
+			<p class="col-xs-3">{{ note.approxTime }}</p>
+			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
+				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'location'" class="col-xs-12"><i class="fa fa-map" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'special'" class="col-xs-12"><i class="fa fa-star" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'work'" class="col-xs-12"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'travel'" class="col-xs-12"><i class="fa fa-plane" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'sick'" class="col-xs-12"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'food'" class="col-xs-12"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'family'" class="col-xs-12"><i class="fa fa-group" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'concert'" class="col-xs-12"><i class="fa fa-music" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div ng-if="vm.noteType == 'pogs'" class="row">
+	<div id="archive-notes" class="col-xs-12">
+		<div class="notes col-xs-4 pogs--border" ng-repeat="note in vm.notes | filter: vm.pogsFilter | filter: vm.quickFilter |  orderBy: 'date'" ng-class="{ 'pogs--bg': (note.author == 'Pogs') }">
+			<h2 class="col-xs-4">{{ note.date }}</h2>
+			<h2 class="col-xs-8">{{ note.title }}</h2>
+			<p class="col-xs-12">{{ note.information }}</p>
+			<p class="col-xs-12">{{ note.tags }}</p>
+			<p class="col-xs-9">{{ note.location }}</p>
+			<p class="col-xs-3">{{ note.approxTime }}</p>
+			<h1 class="col-xs-2" ng-repeat="icon in note.icons">
+				<span ng-if="icon == 'birthday'" class="col-xs-12"><i class="fa fa-gift" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'school'" class="col-xs-12"><i class="fa fa-book" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'location'" class="col-xs-12"><i class="fa fa-map" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'special'" class="col-xs-12"><i class="fa fa-star" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'work'" class="col-xs-12"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'travel'" class="col-xs-12"><i class="fa fa-plane" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'sick'" class="col-xs-12"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'food'" class="col-xs-12"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'family'" class="col-xs-12"><i class="fa fa-group" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'concert'" class="col-xs-12"><i class="fa fa-music" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'home'" class="col-xs-12"><i class="fa fa-home" aria-hidden="true"></i></span>
+				<span ng-if="icon == 'party'" class="col-xs-12"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<footer id="pogs-footer" class="col-xs-12">
+		<div id="pogs-footer-search" class="col-xs-12">
+			<div id="pogs-footer-search-text" class="col-xs-4">
+				<h3 class="col-xs-12 text-right">Quick! Search for a Note</h3>
+			</div>
+			<div class="pogs-footer-input col-xs-7">
+				<input ng-model="vm.quickFilter" class="col-xs-12" type="text" placeholder="MM/DD/YYYY; Title; Info; Tags; Location; Time; Icons; Pogs;">
+			</div>
+			<button id="pogs-footer-search-button" class="btn btn-circle col-xs-1" type="submit"><i class="fa fa-search"></i></button>
+		</div>
+	</footer>
+</div>
