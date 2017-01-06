@@ -38,7 +38,7 @@ function config($routeProvider) {
 			controller: RegisterController,
 			controllerAs: 'vm',
 			access: {
-				restricted: true
+				restricted: false
 			}
 		})
 		.otherwise({
