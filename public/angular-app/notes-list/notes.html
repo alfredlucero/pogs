@@ -212,21 +212,29 @@
 <div class="row">
 	<footer id="pogs-footer" class="col-xs-12">
 		<div id="pogs-footer-add" class="col-xs-12">
-			<h3 class="col-xs-4 text-center">Quick! Add a Note</h3>
-			<div class="pogs-footer-input col-xs-7">
-				<input class="col-xs-5" type="text" placeholder="Title of Quick Note">
-				<div class="col-xs-7">
-					<input class="col-xs-12" type="textarea" placeholder="Quick Note Info">
+			<form ng-submit="vm.addQuickNote()">
+				<h3 class="pogs-footer-text--top col-xs-4 text-right">Quick! Add a Note</h3>
+				<div class="pogs-footer-input--top col-xs-7">
+					<input ng-model="vm.quickNoteData.date" type="text" class="col-xs-2" placeholder="MM/DD/YYYY">
+					<div class="col-xs-3">
+						<input ng-model="vm.quickNoteData.title" class="col-xs-12" type="text" placeholder="Quick Note Title">
+					</div>
+					<input ng-model="vm.quickNoteData.information" class="col-xs-4" type="textarea" placeholder="Quick Note Info">
+					<div class="col-xs-3">
+						<button type="button" class="btn btn-default col-xs-4 pedong--bg pogs--border" ng-class="{active: vm.isQuickNoteAuthorSet('Pedong')}" ng-click="vm.setQuickNoteAuthor('Pedong')"><h3 class="pogs-filter-button-text--small">P</h3></button>
+						<button type="button" class="btn btn-default col-xs-4 gingin--bg pogs--border" ng-class="{active: vm.isQuickNoteAuthorSet('Gingin')}" ng-click="vm.setQuickNoteAuthor('Gingin')"><h3 class="pogs-filter-button-text--small">G</h3></button>
+						<button type="button" class="btn btn-default col-xs-4 pogs--bg pogs--border" ng-class="{active: vm.isQuickNoteAuthorSet('Pogs')}" ng-click="vm.setQuickNoteAuthor('Pogs')"><h3 class="pogs-filter-button-text--small">PG</h3></button>
+					</div>
 				</div>
-			</div>
-			<button class="btn btn-circle col-xs-1" type="submit"><i class="fa fa-plus"></i></button>
+				<button class="btn btn-circle pogs-footer-button col-xs-1" type="submit"><i class="fa fa-plus"></i></button>
+			</form>
 		</div>
 		<div id="pogs-footer-search" class="col-xs-12">
-			<h3 class="col-xs-4 text-center">Quick! Search for a Note</h3>
+			<h3 class="pogs-footer-text col-xs-4 text-right">Quick! Search for a Note</h3>
 			<div class="pogs-footer-input col-xs-7">
 				<input ng-model="vm.quickFilter" class="col-xs-12" type="text" placeholder="MM/DD/YYYY; Title; Info; Tags; Location; Time; Icons; Pogs;">
 			</div>
-			<button class="btn btn-circle col-xs-1" type="submit"><i class="fa fa-search"></i></button>
+			<button class="btn btn-circle pogs-footer-button col-xs-1" type="submit"><i class="fa fa-search"></i></button>
 		</div>
 	</footer>
 </div>

@@ -17,7 +17,7 @@ function AdvancedAddController($http, $route, notesDataFactory) {
 	};
 
 	vm.addAdvancedNote = function() {
-		console.log(vm.addAdvancedNoteData);
+		//console.log(vm.addAdvancedNoteData);
 
 		for (var icon of vm.iconSet) {
 			vm.addAdvancedNoteData.icons.push(icon);

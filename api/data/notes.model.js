@@ -14,24 +14,20 @@ var noteSchema = new mongoose.Schema({
 		required : true
 	},
 	tags : {
-		type : String,
-		required : true
+		type : String
 	},
 	location : {
-		type : String,
-		required : true
+		type : String
 	},
 	approxTime : {
-		type : String,
-		required : true
+		type : String
 	},
 	author : {
 		type : String,
 		required : true
 	},
 	icons : {
-		type : [String],
-		required : true
+		type : [String]
 	},
 	archived : {
 		type : Boolean,

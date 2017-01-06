@@ -83,6 +83,11 @@ input {
 	background-color: #fff !important;
 }
 
+.pogs-filter-button-text--small {
+	margin: 0;
+	font-size: 16px;
+}
+
 .btn-edit {
 	padding: 10px 0 0 0;
 	border: none;
@@ -171,13 +176,22 @@ input {
 	margin: 20px 0 10px 0;
 }
 
-#pogs-footer-search-text {
+.pogs-footer-input--top {
+	margin: 20px 0 0 0;
+}
+
+.pogs-footer-button {
+	margin-top: 15px;
+}
+
+.pogs-footer-text {
 	padding: 0;
 	margin: 20px 0;
 }
 
-#pogs-footer-search-button {
-	margin-top: 15px;
+.pogs-footer-text--top {
+	padding: 0;
+	margin: 20px 0 0 0;
 }
 
 #pogs-advanced-add {

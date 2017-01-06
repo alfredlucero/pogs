@@ -5,6 +5,18 @@ function NotesController($route, $window, notesDataFactory) {
 	var vm = this;
 	vm.quickFilter = '';
 	vm.noteType = 'all';
+	vm.quickNoteData = {
+		date : "",
+		title : "",
+		information : "",
+		tags : "",
+		location : "",
+		approxTime : "",
+		author: "Pedong",
+		icons : [],
+		archived : false
+	};
+
 	vm.notes = [];
 	var currentDate = new Date();
 	var currentDay = currentDate.getDate();
@@ -34,12 +46,39 @@ function NotesController($route, $window, notesDataFactory) {
 		}
 	});
 
+	vm.addQuickNote = function() {
+		var addQuickNoteConfirmed = $window.confirm('Are you sure you want to add this quick note?');
+		if (addQuickNoteConfirmed) {
+			// Post note to database
+			notesDataFactory.postNote(vm.quickNoteData).then(function(response) {
+				// Clear addAdvancedNoteData and iconSet
+				vm.quickNoteData = {
+					date : "",
+					title : "",
+					information : "",
+					tags : "",
+					location : "",
+					approxTime : "",
+					author: "Pedong",
+					icons : [],
+					archived : false
+				};
+				$route.reload();
+				$window.alert('Quick Note added!');
+			}).catch(function(error) {
+				$window.alert('Quick Note failed to post!');
+				console.log(error);
+			});
+		}
+	};
+
 	vm.deleteNote = function(id) {
 		var deleteConfirmed = $window.confirm('Are you sure you want to delete this note?');
 		if (deleteConfirmed) {
 			notesDataFactory.deleteNote(id).then(function(response) {
 				console.log('Note deleted');
 				$route.reload();
+				$window.alert('Quick Note deleted!');
 			});
 		}
 	};
@@ -62,8 +101,8 @@ function NotesController($route, $window, notesDataFactory) {
 
 		if (updateConfirmed) {
 			notesDataFactory.updateNote(noteToUpdate._id, updatedNote).then(function(response) {
-				console.log('Note updated');
 				noteToUpdate.editMode = false;
+				console.log('Note updated!');
 			}).catch(function(error) {
 				console.log(error);
 			});
@@ -101,4 +140,13 @@ function NotesController($route, $window, notesDataFactory) {
 	vm.isNoteTypeSet = function(noteType) {
 		return vm.noteType === noteType;
 	};
+
+	vm.setQuickNoteAuthor = function(quickNoteAuthor) {
+		vm.quickNoteData.author = quickNoteAuthor;
+	};
+
+	vm.isQuickNoteAuthorSet = function(quickNoteAuthor) {
+		return vm.quickNoteData.author === quickNoteAuthor;
+	};
+
 }

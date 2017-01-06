@@ -39,3 +39,4 @@ process.once('SIGUSR2', function() {
 
 // Bring in schemas and models
 require('./notes.model.js');
+require('./users.model.js');
