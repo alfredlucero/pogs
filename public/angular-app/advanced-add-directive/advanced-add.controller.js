@@ -1,6 +1,6 @@
 angular.module('pogsApp').controller('AdvancedAddController', AdvancedAddController);
 
-function AdvancedAddController($http, $route, notesDataFactory) {
+function AdvancedAddController($http, $route, notesDataFactory, AuthFactory) {
 	var vm = this;
 	vm.iconSet = new Set();
 
@@ -17,32 +17,31 @@ function AdvancedAddController($http, $route, notesDataFactory) {
 	};
 
 	vm.addAdvancedNote = function() {
-		//console.log(vm.addAdvancedNoteData);
+		if (AuthFactory.isLoggedIn) {
+			for (var icon of vm.iconSet) {
+				vm.addAdvancedNoteData.icons.push(icon);
+			}
 
-		for (var icon of vm.iconSet) {
-			vm.addAdvancedNoteData.icons.push(icon);
+			// Post note to database
+			notesDataFactory.postNote(vm.addAdvancedNoteData).then(function(response) {
+				// Clear addAdvancedNoteData and iconSet
+				vm.addAdvancedNoteData = {
+					date : "",
+					title : "",
+					information : "",
+					tags : "",
+					location : "",
+					approxTime : "",
+					author: "",
+					icons : [],
+					archived : false
+				};
+				vm.iconSet.clear();
+				$route.reload();
+			}).catch(function(error) {
+			 console.log(error);
+			});
 		}
-
-		// Post note to database
-		notesDataFactory.postNote(vm.addAdvancedNoteData).then(function(response) {
-			// Clear addAdvancedNoteData and iconSet
-			vm.addAdvancedNoteData = {
-				date : "",
-				title : "",
-				information : "",
-				tags : "",
-				location : "",
-				approxTime : "",
-				author: "",
-				icons : [],
-				archived : false
-			};
-			vm.iconSet.clear();
-			$route.reload();
-		}).catch(function(error) {
-		 console.log(error);
-		});
-
 	};
 
 	vm.setAuthor = function(author) {

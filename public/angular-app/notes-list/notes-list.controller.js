@@ -1,7 +1,7 @@
 angular.module('pogsApp').controller('NotesController', NotesController);
 
 
-function NotesController($route, $window, notesDataFactory) {
+function NotesController($route, $window, notesDataFactory, AuthFactory) {
 	var vm = this;
 	vm.quickFilter = '';
 	vm.noteType = 'all';
@@ -47,65 +47,71 @@ function NotesController($route, $window, notesDataFactory) {
 	});
 
 	vm.addQuickNote = function() {
-		var addQuickNoteConfirmed = $window.confirm('Are you sure you want to add this quick note?');
-		if (addQuickNoteConfirmed) {
-			// Post note to database
-			notesDataFactory.postNote(vm.quickNoteData).then(function(response) {
-				// Clear addAdvancedNoteData and iconSet
-				vm.quickNoteData = {
-					date : "",
-					title : "",
-					information : "",
-					tags : "",
-					location : "",
-					approxTime : "",
-					author: "Pedong",
-					icons : [],
-					archived : false
-				};
-				$route.reload();
-				$window.alert('Quick Note added!');
-			}).catch(function(error) {
-				$window.alert('Quick Note failed to post!');
-				console.log(error);
-			});
+		if (AuthFactory.isLoggedIn) {
+			var addQuickNoteConfirmed = $window.confirm('Are you sure you want to add this quick note?');
+			if (addQuickNoteConfirmed) {
+				// Post note to database
+				notesDataFactory.postNote(vm.quickNoteData).then(function(response) {
+					// Clear addAdvancedNoteData and iconSet
+					vm.quickNoteData = {
+						date : "",
+						title : "",
+						information : "",
+						tags : "",
+						location : "",
+						approxTime : "",
+						author: "Pedong",
+						icons : [],
+						archived : false
+					};
+					$route.reload();
+					$window.alert('Quick Note added!');
+				}).catch(function(error) {
+					$window.alert('Quick Note failed to post!');
+					console.log(error);
+				});
+			}
 		}
 	};
 
 	vm.deleteNote = function(id) {
-		var deleteConfirmed = $window.confirm('Are you sure you want to delete this note?');
-		if (deleteConfirmed) {
-			notesDataFactory.deleteNote(id).then(function(response) {
-				console.log('Note deleted');
-				$route.reload();
-				$window.alert('Quick Note deleted!');
-			});
+		if (AuthFactory.isLoggedIn) {
+			var deleteConfirmed = $window.confirm('Are you sure you want to delete this note?');
+			if (deleteConfirmed) {
+				notesDataFactory.deleteNote(id).then(function(response) {
+					console.log('Note deleted');
+					$route.reload();
+					$window.alert('Quick Note deleted!');
+				});
+			}
 		}
 	};
 
 	vm.updateNote = function(noteToUpdate) {
-		var updateConfirmed = $window.confirm('Are you sure you want to update this note?');
-		var updatedNote = {
-			date: noteToUpdate.date,
-			title: noteToUpdate.title,
-			information: noteToUpdate.information,
-			tags: noteToUpdate.tags,
-			location: noteToUpdate.location,
-			approxTime: noteToUpdate.approxTime,
-			icons: noteToUpdate.icons,
-			archived: noteToUpdate.archived,
-			author: noteToUpdate.author
-		};
+		if (AuthFactory.isLoggedIn) {
+			var updateConfirmed = $window.confirm('Are you sure you want to update this note?');
+			var updatedNote = {
+				date: noteToUpdate.date,
+				title: noteToUpdate.title,
+				information: noteToUpdate.information,
+				tags: noteToUpdate.tags,
+				location: noteToUpdate.location,
+				approxTime: noteToUpdate.approxTime,
+				icons: noteToUpdate.icons,
+				archived: noteToUpdate.archived,
+				author: noteToUpdate.author
+			};
 
-		console.log(updatedNote);
+			console.log(updatedNote);
 
-		if (updateConfirmed) {
-			notesDataFactory.updateNote(noteToUpdate._id, updatedNote).then(function(response) {
-				noteToUpdate.editMode = false;
-				console.log('Note updated!');
-			}).catch(function(error) {
-				console.log(error);
-			});
+			if (updateConfirmed) {
+				notesDataFactory.updateNote(noteToUpdate._id, updatedNote).then(function(response) {
+					noteToUpdate.editMode = false;
+					console.log('Note updated!');
+				}).catch(function(error) {
+					console.log(error);
+				});
+			}
 		}
 	};
 

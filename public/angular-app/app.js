@@ -1,4 +1,4 @@
-angular.module('pogsApp', ['ngRoute'])
+angular.module('pogsApp', ['ngRoute', 'angular-jwt'])
 	.config(config);
 
 function config($routeProvider) {
