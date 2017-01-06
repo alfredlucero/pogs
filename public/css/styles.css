@@ -21,7 +21,7 @@ h2 {
 }
 
 h3 {
-	margin: 0 0 10px 0;
+	margin: 0;
 	font-size: 24px;
 	font-family: 'Clicker Script', cursive;
 	font-weight: 900;
@@ -143,6 +143,18 @@ input {
 	height: 150px;
 }
 
+.pogs-nav-button {
+	margin-top: -5px;
+}
+
+.pogs-nav-link {
+	margin: 30px 0 20px 0;
+}
+
+#pogs-nav-welcome {
+	margin: 0;
+}
+
 #pogs-about-img {
 	width: 300px;
 	height: 200px;
@@ -154,14 +166,17 @@ input {
 	margin: 25px 0px;
 }
 
-#pedong-notes {
+#pedong-notes,
+#gingin-notes,
+#pogs-notes,
+#archive-notes {
+	margin-bottom: 300px;
 	min-height: 100vh;
 	border-right: dashed thick #eee;
 }
 
-#gingin-notes {
-	min-height: 100vh;
-	border-left: dashed thick #eee;
+.archive-title {
+	margin-top: 0;
 }
 
 #pogs-footer {
@@ -197,6 +212,11 @@ input {
 #pogs-advanced-add {
 	background-color: #111;
 	opacity: 0.95;
+}
+
+#advanced-add-icons-text,
+#advanced-add-icons {
+	margin-top: 10px;
 }
 
 .modal-body {
