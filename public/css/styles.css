@@ -132,6 +132,7 @@ input {
 .btn-circle--large {
 	width: 60px;
 	height: 60px;
+	margin: 30px 0 15px 0;
 }
 
 #pogs-nav {
@@ -166,6 +167,14 @@ input {
 	margin: 25px 0px;
 }
 
+.notes-icons {
+	margin: 5px 0 10px 0;
+}
+
+.notes-top-edit {
+	margin-top: 10px;
+}
+
 #pedong-notes,
 #gingin-notes,
 #pogs-notes,
@@ -173,10 +182,6 @@ input {
 	margin-bottom: 300px;
 	min-height: 100vh;
 	border-right: dashed thick #eee;
-}
-
-.archive-title {
-	margin-top: 0;
 }
 
 #pogs-footer {
@@ -212,6 +217,18 @@ input {
 #pogs-advanced-add {
 	background-color: #111;
 	opacity: 0.95;
+}
+
+#pogs-advanced-add-label {
+	margin-top: -10px;
+}
+
+#advanced-add-info-label {
+	margin-bottom: 5px;
+}
+
+#advanced-add-close {
+	margin: 0;
 }
 
 #advanced-add-icons-text,
